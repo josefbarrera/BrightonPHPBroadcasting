@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -81,6 +85,11 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+
+                <form method="post" action="/scan" id="scan-repo">
+                    @csrf
+                    <button>Start scan</button>
+                </form>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

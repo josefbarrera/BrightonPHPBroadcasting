@@ -15,8 +15,19 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//
+//const app = new Vue({
+//    el: '#app'
+//});
 
-const app = new Vue({
-    el: '#app'
+var form = document.getElementById('scan-repo');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.axios.post(form.action);
 });
+
+Echo.channel(`public_messages`)
+    .listen('EmitScriptOutput', (e) => {
+        console.log(e.data);
+    });
