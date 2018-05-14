@@ -84,17 +84,17 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div id="messages-board" class="content">
                 <div class="title m-b-md">
                     Laravel
                 </div>
 
                 <form method="post" action="/scan" id="scan-repo">
                     @csrf
-                    <button>Start scan</button>
+                    <button :disabled="disabled">Start scan</button>
                 </form>
 
-                <div id="messages-board" class="container">
+                <div class="container">
                     <messages-board
                         v-bind:messages="messages">
                     </messages-board>
