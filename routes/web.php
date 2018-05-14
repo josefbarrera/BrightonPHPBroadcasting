@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::post('/scan', 'ScriptsController@scanRepo');
+Route::get('/messages', 'ScriptsController@getLatestMessages');

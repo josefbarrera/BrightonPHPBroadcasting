@@ -15,6 +15,9 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -90,6 +93,12 @@
                     @csrf
                     <button>Start scan</button>
                 </form>
+
+                <div id="messages-board" class="container">
+                    <messages-board
+                        v-bind:messages="messages">
+                    </messages-board>
+                </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>

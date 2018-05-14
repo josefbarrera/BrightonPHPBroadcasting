@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\EmitScriptOutput;
+use App\Models\ScriptOutput;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -26,6 +27,11 @@ class StoreEmittedOutput
      */
     public function handle(EmitScriptOutput $event)
     {
-        //
+        $output = new ScriptOutput();
+        $output->data = json_encode(
+            $event->data,
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK
+        );
+        $output->save();
     }
 }
